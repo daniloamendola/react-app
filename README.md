@@ -1,3 +1,11 @@
+This is a simple project did by me to test my knowledge with React, Router, and connection with backend services like Firebase.
+
+You will find some comments in the code that could be useful to understand the implementation.
+
+The project is regarding a personal book library which could be used to store the read books.
+
+## Info for React
+ 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

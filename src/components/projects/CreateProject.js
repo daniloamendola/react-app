@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { createProject } from '../../store/actions/projectActions'
 
 class CreateProject extends Component {
     
@@ -11,11 +13,12 @@ class CreateProject extends Component {
         this.setState({
             [e.target.id]:e.target.value
         })
+        //console.log(e.target.value)
     }
 
     handleSubmit = (e)=> {
         e.preventDefault()
-
+        this.props.boundCreateProject(this.state)
         console.log(this.state)
     }
 
@@ -35,7 +38,7 @@ class CreateProject extends Component {
                 </div>
                 
                 <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Login</button>
+                    <button className="btn pink lighten-1 z-depth-0">Add</button>
                 </div>
             </form>
         </div>
@@ -43,4 +46,12 @@ class CreateProject extends Component {
     }
 }
 
-export default CreateProject
+
+
+const mapDispatchToProps = dispatch => {
+    return { // this is a bound action creator that automatically dispatches
+      boundCreateProject: (project) => dispatch(createProject(project))
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(CreateProject)
